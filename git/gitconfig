@@ -1,0 +1,51 @@
+[push]
+	default = simple
+[http]
+	sslVerify = false
+[user]
+	name = Przemysław Walkowiak
+	email = przemyslaw.walkowiak@put.poznan.pl
+[color]
+	ui = auto
+[advice]
+	statusHints = false
+[core]
+	whitespace = trailing-space,space-before-tab
+[diff]
+	mnemonicprefix = true
+	tool = vimdiff
+[merge]
+	stat = true
+	tool = diffconflicts
+[alias]
+    l = "!git log --graph --pretty='tformat:%C(yellow)%h{%C(green)%ar{%C(bold blue)%an{%C(red)%d%C(reset) %s' $* | column -t -s '{' | less -FXRS"
+    lg = log --graph --pretty=format:'%Cred%h%Creset %an -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    markdown = !BN=$(git name-rev --name-only HEAD) && git log --no-merges --grep=$BN --pretty=oneline | awk -F"$BN: " '{print \"-\", $NF}' | uniq
+	details = log -n1 -p --format=fuller
+
+[color "branch"]
+        current = yellow reverse
+        local = yellow
+        remote = green
+
+[color "diff"]
+        meta = yellow bold
+        frag = magenta bold
+        old = red bold
+        new = green bold
+
+[color "status"]
+        added = yellow bold
+        changed = green
+        untracked = cyan
+
+[format]
+	pretty = %Cred%h%Creset %aN -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset
+[credential]
+    helper = gnomekeyring
+[difftool]
+	prompt = false
+[mergetool "diffconflicts"]
+	cmd = diffconflicts vim $BASE $LOCAL $REMOTE $MERGED
+	trustExitCode = true
+	keepBackup = false
