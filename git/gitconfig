@@ -28,11 +28,17 @@
         local = yellow
         remote = green
 
+;[color "diff"]
+        ;meta = yellow bold
+        ;frag = magenta bold
+        ;old = red bold
+        ;new = green bold
 [color "diff"]
-        meta = yellow bold
-        frag = magenta bold
-        old = red bold
-        new = green bold
+    meta = blue
+    frag = magenta 
+    old = red 
+    new = green 
+    whitespace = red reverse
 
 [color "status"]
         added = yellow bold
