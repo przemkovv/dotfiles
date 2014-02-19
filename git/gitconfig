@@ -48,7 +48,7 @@
 [format]
 	pretty = %Cred%h%Creset %aN -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset
 [credential]
-    helper = gnomekeyring
+    helper = gnome-keyring
 [difftool]
 	prompt = false
 [mergetool "diffconflicts"]
