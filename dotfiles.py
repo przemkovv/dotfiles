@@ -32,7 +32,7 @@ def list_packages(path):
 
 
 def make_symlink(source, target):
-    print "\t%s -> %s" % (source, target)
+    print("\t%s -> %s" % (source, target))
     if os.path.exists(target):
         os.remove(target)
     os.symlink(source, target)
@@ -96,7 +96,7 @@ def main(args):
             update(dotfiles_path)
 
     except IOError as ex:
-        print "I/O error: %s" % ex
+        print("I/O error: %s" % ex)
 
 if __name__ == '__main__':
     main(docopt(__doc__, version='0.1alpha'))

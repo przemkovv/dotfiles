@@ -1,0 +1,12 @@
+
+set gui=none
+set hintchars=asdfjklqwertuiop
+set hlsearch
+set visualbell
+hi Bell display: none;
+
+nnoremap J <C-d>
+nnoremap K <C-u>
+nnoremap h <C-p>
+nnoremap l <C-n>
+
