@@ -1,5 +1,5 @@
 
-set gui=none
+"set gui=none
 set hintchars=asdfjklqwertuiop
 set hlsearch
 set visualbell
@@ -10,3 +10,6 @@ nnoremap K <C-u>
 nnoremap h <C-p>
 nnoremap l <C-n>
 
+highlight! Hint font-size: 12px; color: black; font-weight: bold; font-family: Consolas, Helvetica, Arial, sans-serif; border: 1px solid #E3BE23; background-color: #FFEBB6; text-transform: uppercase
+highlight! HintElem background-color: transparent
+highlight! HintActive background-color: transparent
