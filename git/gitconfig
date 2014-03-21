@@ -8,7 +8,7 @@
 [color]
 	ui = auto
 [advice]
-	statusHints = false
+	statusHints = true
 [github]
     user = przemkovv
 [core]
@@ -57,11 +57,13 @@
 
 [format]
 	pretty = %Cred%h%Creset %aN -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset
-[credential]
-    helper = gnome-keyring
+;[credential]
+    ;helper = gnome-keyring
 [difftool]
 	prompt = false
 [mergetool "diffconflicts"]
 	cmd = diffconflicts vim $BASE $LOCAL $REMOTE $MERGED
 	trustExitCode = true
 	keepBackup = false
+[credential]
+	helper = /usr/share/git/credential/gnome-keyring/git-credential-gnome-keyring
