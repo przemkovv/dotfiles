@@ -1,24 +1,41 @@
 "1.1
 
+"colorscheme solarized-dark
+
 loadplugins '\.(js|penta)$'
 group user
-highlight Bell display: none;
-nnoremap J <C-d>
-nnoremap K <C-u>
-nnoremap <C-h> h
-nnoremap <C-l> l
-nnoremap h <C-p>
-nnoremap l <C-n>
-
-"map -count -modes=n J -builtin <count><C-d>
-"map -count -modes=n K -builtin <count><C-u>
-"map -count -modes=n h -builtin <count><C-p>
-"map -count -modes=n l -builtin <count><C-n>
 set visualbell
+highlight Bell display: none;
+
+map -count -modes=n J -builtin <count><C-d>
+map -count -modes=n K -builtin <count><C-u>
+map -count -modes=n <c-h> -builtin <count>h
+map -count -modes=n <c-l> -builtin <count>l
+map -count -modes=n h -builtin <count><C-p>
+map -count -modes=n l -builtin <count><C-n>
 set hintkeys=asdfjklqwertuiop
 
 :highlight Hint font-size: 12px; color: black; font-weight: bold; font-family: Consolas, Helvetica, Arial, sans-serif; border: 1px solid #E3BE23; background-color: #FFEBB6; text-transform: uppercase
 :highlight HintElem background-color: transparent
 :highlight HintActive background-color: transparent
 
-" vim: set ft=pentadactyl:
+set passkeys=mail.google.com:jkx<CR>,gi
+
+" feedly:
+group -description 'Feedly' -locations=feedly.com feedly
+nmap -group feedly gm <Pass>
+nmap -group feedly ga <Pass>
+nmap -group feedly gg <Pass>
+nmap -group feedly gl <Pass>
+
+set passkeys+=feedly.com:"r/jknpv<S-j><S-k><S-m>mxs<S-v>"
+
+" github:
+"set passkeys+=github.com:"<CR>r?jks"
+
+" reddit:
+"set passkeys+=reddit.com:"jk[]azp?.srfF"
+
+set complete=ls
+
+" vim: set ft=vim:
