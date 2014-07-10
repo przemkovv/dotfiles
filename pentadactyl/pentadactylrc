@@ -3,10 +3,17 @@
 loadplugins '\.(js|penta)$'
 group user
 highlight Bell display: none;
-map -count -modes=n J -builtin <count><C-d>
-map -count -modes=n K -builtin <count><C-u>
-map -count -modes=n h -builtin <count><C-p>
-map -count -modes=n l -builtin <count><C-n>
+nnoremap J <C-d>
+nnoremap K <C-u>
+nnoremap <C-h> h
+nnoremap <C-l> l
+nnoremap h <C-p>
+nnoremap l <C-n>
+
+"map -count -modes=n J -builtin <count><C-d>
+"map -count -modes=n K -builtin <count><C-u>
+"map -count -modes=n h -builtin <count><C-p>
+"map -count -modes=n l -builtin <count><C-n>
 set visualbell
 set hintkeys=asdfjklqwertuiop
 
