@@ -10,7 +10,7 @@
 [advice]
 	statusHints = false
 [github]
-    user = przemkovv
+	user = przemkovv
 [core]
 	whitespace = trailing-space,space-before-tab
 [diff]
