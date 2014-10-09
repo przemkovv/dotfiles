@@ -21,16 +21,33 @@ status.register("cpu_usage",
                 format="↺ {usage:02}%")
 
 # Shows your CPU temperature, if you have a Intel CPU
-#status.register("temp",
-                #format="{temp:.0f}°C",)
-
-# The battery monitor has many formatting options, see README for details
+status.register("temp",
+                format="{temp:.0f}°C",)
 
 # This would look like this, when discharging (or charging)
 # ↓14.22W 56.15% [77.81%] 2h:41m
 # And like this if full:
 # =14.22W 100.0% [91.21%]
 #
+# This would also display a desktop notification (via dbus) if the percentage
+# goes below 5 percent while discharging. The block will also color RED.
+status.register("battery",
+    format="{status}{consumption:.2f}W {percentage:.2f}% \[{percentage_design:.2f}%\] {remaining:%E%hh:%Mm}",
+    alert=True,
+    alert_percentage=5,
+    status={
+        "DIS": "↓",
+        "CHR": "↑",
+        "FULL": "=",
+    },)
+
+# Has all the options of the normal network and adds some wireless specific things
+# like quality and network names.
+#
+# Note: requires both netifaces and basiciw
+status.register("wireless",
+    interface="wlp3s0",
+    format_up="{essid} {quality:03.0f}%",)
 
 # Displays whether a DHCP client is running
 # status.register("runwatch",
@@ -46,9 +63,12 @@ status.register("cpu_usage",
 #
 # Note: the network module requires PyPI package netifaces-py3
 status.register("network",
-                interface="enp0s25",
-                format_up="{v4cidr}",)
+                interface="wlp3s0",
+                format_up="wlp3s0: {v4cidr}",)
 
+status.register("network",
+                interface="enp0s25",
+                format_up="enp0s25: {v4cidr}",)
 
 # Shows disk usage of /
 # Format:
