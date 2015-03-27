@@ -45,9 +45,9 @@ status.register("battery",
 # like quality and network names.
 #
 # Note: requires both netifaces and basiciw
-status.register("wireless",
-    interface="wlp3s0",
-    format_up="{essid} {quality:03.0f}%",)
+#status.register("wireless",
+    #interface="wlp3s0",
+    #format_up="{essid} {quality:03.0f}%",)
 
 # Displays whether a DHCP client is running
 # status.register("runwatch",
@@ -64,11 +64,17 @@ status.register("wireless",
 # Note: the network module requires PyPI package netifaces-py3
 status.register("network",
                 interface="wlp3s0",
-                format_up="wlp3s0: {v4cidr}",)
+                dynamic_color=False,
+                format_up="{interface}: {v4cidr}, {essid} {quality:03.0f}%, ↓{bytes_recv} KB/s ↑{bytes_sent} KB/s",)
+
+#status.register("network_traffic",
+                #interface="wlp3s0",
+                #format_up="{interface} {network_graph}KB/s",)
 
 status.register("network",
                 interface="enp0s25",
-                format_up="enp0s25: {v4cidr}",)
+                dynamic_color=False,
+                format_up="{interface}: {v4cidr}, {bytes_recv}/{bytes_sent} KB/s",)
 
 # Shows disk usage of /
 # Format:
@@ -95,3 +101,4 @@ status.register("mpd",
                 },)
 
 status.run()
+
