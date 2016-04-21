@@ -186,7 +186,7 @@ bar {
 
         #status_command i3status
         #font pango:DejaVu Sans Mono, Icons 8
-        font pango:Inconsolata for Powerline Medium 14
+        font pango:Inconsolata for Powerline Medium 12
 
         colors {
             urgent_workspace #2f343a #909000 #ffffff
@@ -213,6 +213,8 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 bindsym $mod+Mod1+Escape mode "$mode_system"
+
+bindsym $mod+m move workspace to output left
 
 set $SINK alsa_output.pci-0000_00_1b.0.analog-stereo
 bindsym $mod+F1 exec "pactl set-sink-mute $SINK toggle"

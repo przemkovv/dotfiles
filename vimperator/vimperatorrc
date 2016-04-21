@@ -14,5 +14,5 @@ highlight! Hint font-size: 12px; color: black; font-weight: bold; font-family: C
 highlight! HintElem background-color: transparent
 highlight! HintActive background-color: transparent
 
-set status=input,ssl,location,bookmark,history,tabcount,position
 set gui+=nonavigation
+set status=ssl,input,location,bookmark,history,tabcount,position
