@@ -14,7 +14,8 @@ exec compton  -b
 #exec --no-startup-id gnome-screensaver
 #exec feh --bg-scale /usr/share/archlinux/wallpaper/archlinux-underground.jpg
 #exec feh --bg-scale /home/przemkovv/Pictures/wallpapers/the_panorama.jpg
-exec feh --bg-scale /home/przemkovv/Pictures/wallpapers/15895620497_92c05d4ed5_o.jpg
+#exec feh --bg-scale /home/przemkovv/Pictures/wallpapers/15895620497_92c05d4ed5_o.jpg
+exec feh --bg-fill /home/przemkovv/Pictures/wallpapers/wall064-1920x1200.jpg
 exec mpd
 exec xcape -e 'Control_L=Escape'
 
@@ -56,7 +57,10 @@ bindsym $mod+Shift+q kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop 
+bindsym $mod+d exec --no-startup-id "rofi -show run"
+bindsym $mod+shift+d exec --no-startup-id i3-dmenu-desktop 
+
+bindsym $mod+p             exec "rofi -show window"
 
 # change focus
 bindsym $mod+h focus left
@@ -177,6 +181,7 @@ bindsym $mod+r mode "resize"
 client.urgent  #3f343a #909000 #ffffff
 
 bar {
+        #status_command i3blocks
         status_command python ~/.i3/status.py
 
         #status_command i3status
@@ -223,5 +228,10 @@ bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 
 assign [class="Skype"] 10
+assign [class="Trillian"] 10
+for_window [class="(?i)pavucontrol"] floating enable, move position mouse
+
+exec --no-startup-id "i3-msg 'workspace 10; append_layout /home/przemkovv/.config/i3/workspace-10.json'"
 
 exec skype &
+

@@ -65,3 +65,5 @@
 	cmd = diffconflicts vim $BASE $LOCAL $REMOTE $MERGED
 	trustExitCode = true
 	keepBackup = false
+[credential]
+	helper = /usr/lib/git-core/git-credential-gnome-keyring
