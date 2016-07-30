@@ -5,6 +5,7 @@
 [user]
 	name = Przemysław Walkowiak
 	email = przemyslaw.walkowiak@put.poznan.pl
+	signingkey = B7B4AB02
 [color]
 	ui = auto
 [advice]
@@ -67,3 +68,7 @@
 	keepBackup = false
 [credential]
 	helper = /usr/lib/git-core/git-credential-gnome-keyring
+[pull]
+	rebase = true
+[commit]
+    gpgsign = true
