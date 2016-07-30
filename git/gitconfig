@@ -1,49 +1,49 @@
 [push]
-	default = simple
+    default = simple
 [http]
-	sslVerify = false
+    sslVerify = false
 [user]
-	name = Przemysław Walkowiak
-	email = przemyslaw.walkowiak@put.poznan.pl
-	signingkey = B7B4AB02
+    name = Przemysław Walkowiak
+    email = przemyslaw.walkowiak@put.poznan.pl
+    signingkey = B7B4AB02
 [color]
-	ui = auto
+    ui = auto
 [advice]
-	statusHints = false
+    statusHints = false
 [github]
-	user = przemkovv
+    user = przemkovv
 [core]
-	whitespace = trailing-space,space-before-tab
+    whitespace = trailing-space,space-before-tab
 [diff]
-	mnemonicprefix = true
-	tool = vimdiff
+    mnemonicprefix = true
+    tool = vimdiff
 [merge]
-	stat = true
-	tool = diffconflicts
+    stat = true
+    tool = diffconflicts
 [alias]
     l = "!git log --graph --pretty='tformat:%C(yellow)%h{%C(green)%ar{%C(bold blue)%an{%C(red)%d%C(reset) %s' $* | column -t -s '{' | less -FXRS"
     lg = log --graph --pretty=format:'%Cred%h%Creset %an -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
     markdown = !BN=$(git name-rev --name-only HEAD) && git log --no-merges --grep=$BN --pretty=oneline | awk -F"$BN: " '{print \"-\", $NF}' | uniq
-	details = log -n1 -p --format=fuller
+    details = log -n1 -p --format=fuller
     hist = "log --graph --pretty=format:'%Cred%h%Creset %d %s %Cgreen(%cr)%Creset %Cblue[%an]%Creset' --abbrev-commit --date=relative"
     ahead = "log @{u}...HEAD --graph --decorate --left-right --boundary --pretty=format:'%Cred%h%Creset %d %s %Cgreen(%cr)%Creset %Cblue[%an]%Creset' --abbrev-commit --date=relative"
     today = "log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative"
-                 
+
     # Show verbose output about tags, branches, or remotes
     tags = tag -l
     branches = branch -a
     remotes = remote -v
 
 [color "branch"]
-        current = yellow reverse
-        local = yellow
-        remote = green
+    current = yellow reverse
+    local = yellow
+    remote = green
 
 ;[color "diff"]
-        ;meta = yellow bold
-        ;frag = magenta bold
-        ;old = red bold
-        ;new = green bold
+	;meta = yellow bold
+	;frag = magenta bold
+	;old = red bold
+	;new = green bold
 [color "diff"]
     meta = blue
     frag = magenta 
@@ -52,23 +52,23 @@
     whitespace = red reverse
 
 [color "status"]
-        added = yellow bold
-        changed = green
-        untracked = cyan
+    added = yellow bold
+    changed = green
+    untracked = cyan
 
 [format]
-	pretty = %Cred%h%Creset %aN -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset
+    pretty = %Cred%h%Creset %aN -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset
 ;[credential]
     ;helper = gnome-keyring
 [difftool]
-	prompt = false
+    prompt = false
 [mergetool "diffconflicts"]
-	cmd = diffconflicts vim $BASE $LOCAL $REMOTE $MERGED
-	trustExitCode = true
-	keepBackup = false
+    cmd = diffconflicts vim $BASE $LOCAL $REMOTE $MERGED
+    trustExitCode = true
+    keepBackup = false
 [credential]
-	helper = /usr/lib/git-core/git-credential-gnome-keyring
+    helper = /usr/lib/git-core/git-credential-gnome-keyring
 [pull]
-	rebase = true
+    rebase = true
 [commit]
     gpgsign = true
