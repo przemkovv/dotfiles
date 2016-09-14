@@ -50,3 +50,16 @@ vimfx.addCommand({
     vim.window.FullZoom.reset()
 })
 map('zz', 'zoom_reset', true)
+
+
+vimfx.set('hint_chars', 'asdfghjklqweriop')
+map('J', 'scroll_half_page_down')
+map('K', 'scroll_half_page_up')
+map('', 'scroll_left')
+map('', 'scroll_right')
+map('d', 'tab_close')
+map('u', 'tab_restore')
+map('l gt', 'tab_select_next')
+map('h gT', 'tab_select_previous')
+vimfx.set('prevent_autofocus', true)
+
