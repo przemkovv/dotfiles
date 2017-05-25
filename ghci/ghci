@@ -1,0 +1,45 @@
+:unset +t
+:set +r
+let sgr s = "\ESC[" ++ s ++ "m"
+let wrap c i = sgr c ++ i ++ sgr "0"
+let resetScreen = putStrLn "\ESCc\ESC[0m\ESC[?25h"
+let concatPut = putStrLn . mconcat
+let enableMsg e  = concatPut [wrap "1;32" "Enabling",  " ", e]
+let disableMsg e = concatPut [wrap "1;31" "Disabling", " ", e]
+:def enable   \i -> enableMsg i  >> return (":set -X" ++ i)
+:def disable  \i -> disableMsg i >> return (":set -XNo" ++ i)
+:def enablei  \i -> enableMsg i  >> return (":seti -X" ++ i)
+:def disablei \i -> disableMsg i >> return (":seti -XNo" ++ i)
+:unset +r
+:set +t
+:enable UnicodeSyntax
+:enablei OverloadedStrings
+:enablei TupleSections
+:enablei LambdaCase
+:enablei NegativeLiterals
+:enablei TypeOperators
+:enablei BangPatterns
+:enablei ViewPatterns
+:enablei PatternGuards
+:enablei PatternSynonyms
+:enablei NamedFieldPuns
+:enablei KindSignatures
+:enablei DeriveFunctor
+:enablei DeriveFoldable
+:enablei DeriveTraversable
+:enablei DeriveDataTypeable
+:enablei DeriveGeneric
+:enablei FlexibleContexts
+:enablei FlexibleInstances
+:enablei ConstraintKinds
+:enablei ScopedTypeVariables
+:def source readFile
+:def reset  \_ -> resetScreen >> return ":reload"
+:def hlint  \i -> return $ ":!hlint ."
+:def hoogle \i -> return $ ":!hoogle --count=15 \"" ++ i ++ "\""
+:def doc    \i -> return $ ":!haskell-docs " ++ i
+:def ls \i -> return $ ":!ls " ++ i
+:set +m
+:set prompt  "\ESC[1;34m\STXλ> \ESC[0m\STX"
+:set prompt2 "\ESC[1;34m\STX~> \ESC[0m\STX"
+:set editor nvim
