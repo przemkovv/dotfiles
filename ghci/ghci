@@ -39,6 +39,7 @@ let disableMsg e = concatPut [wrap "1;31" "Disabling", " ", e]
 :def hoogle \i -> return $ ":!hoogle --count=15 \"" ++ i ++ "\""
 :def doc    \i -> return $ ":!haskell-docs " ++ i
 :def ls \i -> return $ ":!ls " ++ i
+:def pl \s -> return $ ":! pointfree \"" ++ s ++ "\""
 :set +m
 :set prompt  "\ESC[1;34m\STXλ> \ESC[0m\STX"
 :set prompt2 "\ESC[1;34m\STX~> \ESC[0m\STX"
