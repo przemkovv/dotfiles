@@ -11,7 +11,11 @@
 
 #xrandr --output HDMI-0 --right-of DVI-1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #exec compton  -b 
+=======
+# exec compton  -b 
+>>>>>>> Stashed changes
 =======
 # exec compton  -b 
 >>>>>>> Stashed changes
@@ -311,6 +315,9 @@ exec --no-startup-id unclutter
 exec --no-startup-id pasystray
 =======
 exec skype &
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 #exec xrandr --output HDMI-0 --right-of DVI-1
 # exec feh --bg-scale /home/przemkovv/Pictures/wallpapers/15895620497_92c05d4ed5_o.jpg
