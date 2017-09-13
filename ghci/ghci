@@ -36,8 +36,9 @@ let disableMsg e = concatPut [wrap "1;31" "Disabling", " ", e]
 :def source readFile
 :def reset  \_ -> resetScreen >> return ":reload"
 :def hlint  \i -> return $ ":!hlint ."
-:def hoogle \i -> return $ ":!hoogle --count=15 \"" ++ i ++ "\""
-:def doc    \i -> return $ ":!haskell-docs " ++ i
+:def hoogle \i -> return $ ":!hoogle --color --count=20 \"" ++ i ++ "\""
+:def doc \i -> return $ ":!hoogle --info \"" ++ i ++ "\""
+-- :def doc    \i -> return $ ":!haskell-docs " ++ i
 :def ls \i -> return $ ":!ls " ++ i
 :def pl \s -> return $ ":! pointfree \"" ++ s ++ "\""
 :set +m

@@ -10,14 +10,15 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 #xrandr --output HDMI-0 --right-of DVI-1
-exec compton  -b 
+#exec compton  -b 
 #--config /etc/xdg/compton.conf
 #exec --no-startup-id gnome-screensaver
 #exec feh --bg-scale /usr/share/archlinux/wallpaper/archlinux-underground.jpg
 #exec feh --bg-scale /home/przemkovv/Pictures/wallpapers/the_panorama.jpg
 #exec feh --bg-scale /home/przemkovv/Pictures/wallpapers/15895620497_92c05d4ed5_o.jpg
-exec feh --bg-fill /home/przemkovv/Pictures/wallpapers/wall064-1920x1200.jpg
-exec mpd
+#exec feh --bg-fill /home/przemkovv/Pictures/wallpapers/wall064-1920x1200.jpg
+exec feh --bg-fill /home/przemkovv/Pictures/wallpapers/the_witcher_3_wild_hunt_geralt_and_ciri-wallpaper-1920x1200.jpg
+#exec mpd
 exec xcape -e 'Control_L=Escape'
 
 exec_always --no-startup-id xrdb -merge ~/.Xresources
@@ -25,6 +26,7 @@ exec_always --no-startup-id xrdb -merge ~/.Xresources
 set $mod Mod4
 
 focus_follows_mouse no
+mouse_warping none
 
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -41,8 +43,9 @@ font pango:M+ 2c medium 9
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-new_window 1pixel 
-new_float 1pixel
+new_window normal  
+new_float pixel 1
+hide_edge_borders smart
 
 bindsym $mod+t border normal
 bindsym $mod+y border 1pixel
@@ -253,10 +256,14 @@ bindsym $mod+F1 exec "pactl set-sink-mute $SINK toggle"
 bindsym $mod+F2 exec "pactl set-sink-volume $SINK -1%"
 bindsym $mod+F3 exec "pactl set-sink-volume $SINK +1%"
 
-bindsym XF86AudioRaiseVolume exec  pactl set-sink-volume $SINK +1%  && pkill -SIGUSR1 -f "python /home/przemkovv/.i3/status.py"
-bindsym XF86AudioLowerVolume exec  pactl set-sink-volume $SINK -1% && pkill -SIGUSR1 -f "python /home/przemkovv/.i3/status.py"
+bindsym XF86AudioRaiseVolume exec  pactl set-sink-volume $SINK +1%  
+bindsym XF86AudioLowerVolume exec  pactl set-sink-volume $SINK -1% 
 
-bindsym XF86AudioMute exec  pactl set-sink-mute $SINK toggle && pkill -SIGUSR1 -f "python /home/przemkovv/.i3/status.py"
+bindsym XF86AudioMute exec  pactl set-sink-mute $SINK toggle 
+#bindsym XF86AudioRaiseVolume exec  pactl set-sink-volume $SINK +1%  && pkill -SIGUSR1 -f "python /home/przemkovv/.i3/status.py"
+#bindsym XF86AudioLowerVolume exec  pactl set-sink-volume $SINK -1% && pkill -SIGUSR1 -f "python /home/przemkovv/.i3/status.py"
+
+#bindsym XF86AudioMute exec  pactl set-sink-mute $SINK toggle && pkill -SIGUSR1 -f "python /home/przemkovv/.i3/status.py"
 
 
 bindsym XF86AudioPlay exec mpc toggle
@@ -269,7 +276,12 @@ bindsym $mod+F5 exec mpc stop
 bindsym $mod+F6 exec mpc prev
 bindsym $mod+F7 exec mpc next
 
-workspace_auto_back_and_forth yes
+bindsym Print exec scrot -m ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png
+bindsym --release Shift+Print exec scrot -s ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png
+
+bindsym XF86Calculator exec termite -e bc
+
+workspace_auto_back_and_forth no
 
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
@@ -280,7 +292,9 @@ for_window [class="(?i)pavucontrol"] floating enable, move position mouse
 
 exec --no-startup-id "i3-msg 'workspace 10; append_layout /home/przemkovv/.config/i3/workspace-10.json'"
 
-exec skype &
-exec xrandr --output HDMI-0 --right-of DVI-1
+exec skypeforlinux &
+exec --no-startup-id unclutter
+exec --no-startup-id pasystray
+#exec xrandr --output HDMI-0 --right-of DVI-1
 # exec feh --bg-scale /home/przemkovv/Pictures/wallpapers/15895620497_92c05d4ed5_o.jpg
 
