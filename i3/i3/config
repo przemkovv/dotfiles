@@ -10,19 +10,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 #xrandr --output HDMI-0 --right-of DVI-1
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-#exec compton  -b 
-=======
 # exec compton  -b 
->>>>>>> Stashed changes
-=======
-# exec compton  -b 
->>>>>>> Stashed changes
-=======
-# exec compton  -b 
->>>>>>> Stashed changes
 #--config /etc/xdg/compton.conf
 #exec --no-startup-id gnome-screensaver
 #exec feh --bg-scale /usr/share/archlinux/wallpaper/archlinux-underground.jpg
@@ -313,19 +301,9 @@ for_window [instance="scratchpad"] move window to scratchpad, scratchpad show
 
 exec --no-startup-id "i3-msg 'workspace 10; append_layout /home/przemkovv/.config/i3/workspace-10.json'"
 
-<<<<<<< Updated upstream
 exec skypeforlinux &
 exec --no-startup-id unclutter
 exec --no-startup-id pasystray
-=======
-exec skype &
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 #exec xrandr --output HDMI-0 --right-of DVI-1
 # exec feh --bg-scale /home/przemkovv/Pictures/wallpapers/15895620497_92c05d4ed5_o.jpg
 
