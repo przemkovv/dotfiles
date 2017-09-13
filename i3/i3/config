@@ -10,17 +10,25 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 #xrandr --output HDMI-0 --right-of DVI-1
+<<<<<<< Updated upstream
 #exec compton  -b 
+=======
+# exec compton  -b 
+>>>>>>> Stashed changes
 #--config /etc/xdg/compton.conf
 #exec --no-startup-id gnome-screensaver
 #exec feh --bg-scale /usr/share/archlinux/wallpaper/archlinux-underground.jpg
 #exec feh --bg-scale /home/przemkovv/Pictures/wallpapers/the_panorama.jpg
 #exec feh --bg-scale /home/przemkovv/Pictures/wallpapers/15895620497_92c05d4ed5_o.jpg
+exec xrandr --output eDP1 --auto --output DP2-1 --auto --right-of eDP1
 #exec feh --bg-fill /home/przemkovv/Pictures/wallpapers/wall064-1920x1200.jpg
-exec feh --bg-fill /home/przemkovv/Pictures/wallpapers/the_witcher_3_wild_hunt_geralt_and_ciri-wallpaper-1920x1200.jpg
-#exec mpd
+exec feh --bg-fill /home/przemkovv/Pictures/wallpapers/witcher_3_geralt_and_ciri_proper_2560x1440_by_scratcherpen-d8wmkb7.jpg
 exec xcape -e 'Control_L=Escape'
 
+set $scratchpad_command "/home/przemkovv/bin/scratchpad.sh" 
+
+# exec --no-startup-id $scratchpad_command
+bindsym $mod+x exec --no-startup-id $scratchpad_command
 exec_always --no-startup-id xrdb -merge ~/.Xresources
 
 set $mod Mod4
@@ -38,7 +46,8 @@ mouse_warping none
 # chose a FreeType font, such as:
 # font pango:DejaVu Sans Mono 10
 #font pango:Inconsolata for Powerline Medium 11
-font pango:M+ 2c medium 9
+#font pango:M+ 2c medium 9
+font pango:Hack medium 9
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -157,6 +166,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
     # These bindings trigger as soon as you enter the resize mode
@@ -213,6 +223,7 @@ bar {
         #font pango:DejaVu Sans Mono, Icons 8
         #font pango:Inconsolata for Powerline Medium 12
         font pango:Icons 10
+        #font pango:Hack 10
         #font pango:M+ 2c medium 10
         colors {
                 #urgent_workspace #2f343a #909000 #ffffff
@@ -289,12 +300,18 @@ bindsym $mod+Shift+Tab workspace prev
 assign [class="Skype"] 10
 assign [class="Trillian"] 10
 for_window [class="(?i)pavucontrol"] floating enable, move position mouse
+for_window [instance="scratchpad"] move window to scratchpad, scratchpad show
+
 
 exec --no-startup-id "i3-msg 'workspace 10; append_layout /home/przemkovv/.config/i3/workspace-10.json'"
 
+<<<<<<< Updated upstream
 exec skypeforlinux &
 exec --no-startup-id unclutter
 exec --no-startup-id pasystray
+=======
+exec skype &
+>>>>>>> Stashed changes
 #exec xrandr --output HDMI-0 --right-of DVI-1
 # exec feh --bg-scale /home/przemkovv/Pictures/wallpapers/15895620497_92c05d4ed5_o.jpg
 

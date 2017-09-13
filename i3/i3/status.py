@@ -15,9 +15,11 @@ status.register("clock",
 # Shows the average load of the last minute and the last 5 minutes
 # (the default value for format is used)
 status.register("load",
+                hints={"separator_block_width":20},
                 format="☢ {avg1}, {avg5}")
 
 status.register("cpu_usage",
+                hints={"separator_block_width":20},
                 format="↺ {usage:02}%")
 
 # Shows your CPU temperature, if you have a Intel CPU
@@ -31,15 +33,16 @@ status.register("cpu_usage",
 #
 # This would also display a desktop notification (via dbus) if the percentage
 # goes below 5 percent while discharging. The block will also color RED.
-#status.register("battery",
-    #format="{status}{consumption:.2f}W {percentage:.2f}% \[{percentage_design:.2f}%\] {remaining:%E%hh:%Mm}",
-    #alert=True,
-    #alert_percentage=5,
-    #status={
-        #"DIS": "↓",
-        #"CHR": "↑",
-        #"FULL": "=",
-    #},)
+status.register("battery",
+    hints={"separator_block_width":20},
+    format="{status}{consumption:.2f}W {percentage:.2f}% \[{percentage_design:.2f}%\] {remaining:%E%hh:%Mm}",
+    alert=True,
+    alert_percentage=5,
+    status={
+        "DIS": "↓",
+        "CHR": "↑",
+        "FULL": "=",
+    },)
 
 # Has all the options of the normal network and adds some wireless specific things
 # like quality and network names.
@@ -63,9 +66,10 @@ status.register("cpu_usage",
 #
 # Note: the network module requires PyPI package netifaces-py3
 status.register("network",
-                interface="wlp6s0",
+                interface="wlp3s0",
                 dynamic_color=False,
-                format_up="{interface}: {v4cidr}, {essid} {quality:03.0f}%, ↓{bytes_recv} KB/s ↑{bytes_sent} KB/s",)
+                hints={"separator_block_width":20},
+                format_up="{interface}: {v4cidr}, {essid} {quality:03.0f}%, ↓{bytes_recv:_>4} KB/s ↑{bytes_sent:_>4} KB/s",)
 
 #status.register("network_traffic",
                 #interface="wlp3s0",
@@ -74,12 +78,14 @@ status.register("network",
 status.register("network",
                 interface="enp0s25",
                 dynamic_color=False,
+                hints={"separator_block_width":20},
                 format_up="{interface}: {v4cidr}, {bytes_recv}/{bytes_sent} KB/s",)
 
 # Shows disk usage of /
 # Format:
 # 42/128G [86G]
 status.register("disk",
+                hints={"separator_block_width":20},
                 path="/home",
                 format="⌂ {used}/{total}G",)
 
@@ -87,13 +93,16 @@ status.register("disk",
 #
 # Note: requires libpulseaudio from PyPI
 status.register("pulseaudio",
+                hints={"separator_block_width":20},
                 format="♪{volume}",)
 
 # Shows mpd status
 # Format:
 # Cloud connected▶Reroute to Remain
 status.register("mpd",
+                hints={"separator_block_width":20},
                 format="☊ {title}{status}{album}",
+                # host="/home/przemkovv/.config/mpd/socket",
                 status={
                        "pause": " ▷ ",
                        "play": " ▶ ",
