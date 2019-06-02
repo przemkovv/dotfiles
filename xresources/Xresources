@@ -1,0 +1,143 @@
+Xft.lcdfilter: lcddefault
+Xft.antialias: true
+Xft.autohint: 0
+Xft.hinting: true
+Xft.hintstyle: hintsfull
+Xft.rgba: rgb
+Xft.dpi: 96
+
+! Base16 Chalk
+! Scheme: Chris Kempson (http://chriskempson.com)
+
+#define base00 #151515
+#define base01 #202020
+#define base02 #303030
+#define base03 #505050
+#define base04 #b0b0b0
+#define base05 #d0d0d0
+#define base06 #e0e0e0
+#define base07 #f5f5f5
+#define base08 #fb9fb1
+#define base09 #eda987
+#define base0A #ddb26f
+#define base0B #acc267
+#define base0C #12cfc0
+#define base0D #6fc2ef
+#define base0E #e1a3ee
+#define base0F #deaf8f
+
+*foreground:   base05
+#ifdef background_opacity
+*background:   [background_opacity]base00
+#else
+*background:   base00
+#endif
+*cursorColor:  base05
+
+*color0:       base00
+*color1:       base08
+*color2:       base0B
+*color3:       base0A
+*color4:       base0D
+*color5:       base0E
+*color6:       base0C
+*color7:       base05
+
+*color8:       base03
+*color9:       base08
+*color10:      base0B
+*color11:      base0A
+*color12:      base0D
+*color13:      base0E
+*color14:      base0C
+*color15:      base07
+
+! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
+! use 'shell' template to set these if necessary
+*color16:      base09
+*color17:      base0F
+*color18:      base01
+*color19:      base02
+*color20:      base04
+*color21: base06
+
+
+xterm*faceName: FuraCode Nerd Font Mono
+xterm*faceSize: 14
+xterm*faceSize1: 8
+xterm*faceSize2: 10
+xterm*faceSize3: 12
+xterm*faceSize4: 14
+xterm*faceSize5: 16
+xterm*faceSize6: 22
+xterm*renderFont: true
+! xterm*faceName: xft:FuraCode Nerd Font:style=Regular:pixelsize=14:antialias=true:hinting=true
+XTerm.termName: xterm-256color
+XTerm.vt100.locale: true
+XTerm.vt100.metaSendsEscape: true
+XTerm.vt100.saveLines: 10000
+XTerm*fullscreen: never
+! XTerm*translations: #override \n\
+           ! Shift~Ctrl <KeyPress> KP_Add:larger-vt-font() \n\
+           ! Shift Ctrl <KeyPress> KP_Add:smaller-vt-font() \n\
+           ! Shift <KeyPress> KP_Subtract:smaller-vt-font() \n
+! Xterm*letterSpace: 1
+
+st.font: FuraCode Nerd Font Mono:size=14
+st.bold_font: 1
+st.termname: st-256color
+st.shell: /bin/zsh
+st.bellvolume: 0
+st.tabspaces: 4
+st.chscale: 1.0
+st.cwscale: 0.85
+/*********************************************************************
+*                               rofi                                *
+*********************************************************************/
+
+rofi.font:            Hack 11
+rofi.terminal:        i3-sensible-terminal
+rofi.lines:           10
+rofi.columns:         1
+rofi.eh:              1
+rofi.width:           60
+rofi.padding:         2
+rofi.location:        0
+rofi.line-margin:     5
+rofi.fullscreen:      false
+rofi.opacity:         100
+rofi.bw:              0
+rofi.sidebar-mode:    false
+!rofi.separator-style: none
+rofi.hide-scrollbar:  true
+rofi.fuzzy:           true
+rofi.color-enabled:   true
+rofi.hmode:			  false
+
+#define bg_external argb:bb282828
+#define bg_internal #282828
+#define bg_active   #ab4642
+#define text_normal #d8d8d8
+#define text_active #282828
+
+/* Class           BG           FG           Alt BG       Active BG  Active FG */
+!rofi.color-normal: bg_internal, text_normal, bg_internal, bg_active, text_active
+!rofi.color-urgent: bg_internal, text_normal, bg_internal, bg_active, text_active
+!rofi.color-active: bg_internal, text_normal, bg_internal, bg_active, text_active
+!rofi.color-window: bg_external, bg_internal
+!
+!! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+! Use extended color scheme
+!rofi.color-enabled:                  true
+! Color scheme for normal row
+rofi.color-normal:                   argb:00000000,  #D8DEE9 , argb:00000000,  #FAC863 ,  #1B2B34
+! Color scheme for urgent row
+rofi.color-urgent:                   argb:00000000,  #F99157 , argb:00000000,  #F99157 ,  #1B2B34
+! Color scheme for active row
+rofi.color-active:                   argb:00000000,  #6699CC , argb:00000000,  #6699CC ,  #1B2B34
+! Color scheme window
+rofi.color-window:                  argb:ee222222,  #FAC863 ,  #FAC863
+! Separator style (none, dash, solid)
+rofi.separator-style:                dash
