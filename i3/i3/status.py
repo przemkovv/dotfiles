@@ -3,6 +3,7 @@
 # import subprocess
 
 from i3pystatus import Status
+from i3pystatus.updates import pacman, yaourt
 
 status = Status(standalone=True)
 
@@ -22,6 +23,21 @@ status.register("cpu_usage",
                 hints={"separator_block_width":20},
                 format="↺ {usage:02}%")
 
+status.register("mem",
+                color="#ffffff",
+                format=" {used_mem}/{total_mem} GB",
+                divisor=1024**3)
+
+status.register("disk",
+                path="/home",
+                hints={ "separator_block_width": 20},
+                format=" {used}/{total}GB",)
+
+#  status.register("updates",
+                #  format="Updates: {count}",
+                #  format_no_updates="No updates",
+                #  hints={ "separator_block_width": 20},
+                #  backends=[pacman.Pacman(), yaourt.Yaourt()])
 # Shows your CPU temperature, if you have a Intel CPU
 #status.register("temp",
                 #format="{temp:.0f}°C",)
@@ -78,8 +94,8 @@ status.register("network",
 status.register("network",
                 interface="enp0s25",
                 dynamic_color=False,
-                hints={"separator_block_width":20},
-                format_up="{interface}: {v4cidr}, {bytes_recv}/{bytes_sent} KB/s",)
+                hints={ "separator_block_width": 20},
+                format_up="{interface}: {v4cidr}, ↓{bytes_recv:_>5} KB/s ↑{bytes_sent:_>5} KB/s",)
 
 # Shows disk usage of /
 # Format:
@@ -93,16 +109,34 @@ status.register("disk",
 #
 # Note: requires libpulseaudio from PyPI
 status.register("pulseaudio",
-                hints={"separator_block_width":20},
+                hints={ "separator_block_width": 20},
                 format="♪{volume}",)
 
 # Shows mpd status
 # Format:
 # Cloud connected▶Reroute to Remain
+# status.register("now_playing",
+                # format="☊ [{artist} - ]{title}{status}{album}",
+                # # max_field_len=100,
+                # status={
+                       # "pause": " ▷ ",
+                       # "play": " ▶ ",
+                       # "stop": " ◾ ",
+                # },)
+
+status.register("spotify",
+                format="☊ [{artist} - ]{title}{status}{album}",
+                hints={ "separator_block_width": 20},
+                status={
+                       "pause": " ▷ ",
+                       "play": " ▶ ",
+                       "stop": " ◾ ",
+                },)
+
 status.register("mpd",
-                hints={"separator_block_width":20},
-                format="☊ {title}{status}{album}",
-                # host="/home/przemkovv/.config/mpd/socket",
+                format="☊ [{artist} - ]{title}{status}{album}",
+                max_field_len=100,
+                hints={ "separator_block_width": 20},
                 status={
                        "pause": " ▷ ",
                        "play": " ▶ ",
